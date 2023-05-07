@@ -91,3 +91,24 @@ QJsonObject ImageManager::convertImagetoJson(void)
     json["data"] = QString::fromLatin1(imageData.toBase64().data());
     return json;
 }
+
+void ImageManager::deleteImage(void)
+{
+    cout << "Deleting image " << m_outputImageFilename.toStdString() << " from drone ressources ..." << endl;
+    QFile file(m_outputImageFilename);
+    if (file.exists())
+    {
+        if (file.remove())
+        {
+            cout << "\tDeleted file !";
+        }
+        else
+        {
+            cout << "\Error during deleting process !";
+        }
+    }
+    else
+    {
+        cout << "\The file doesn't exist";
+    }
+}

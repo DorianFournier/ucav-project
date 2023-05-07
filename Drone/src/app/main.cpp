@@ -3,6 +3,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QByteArray>
+#include <iostream>
+#include <cstdlib>
 
 #include "mqttManager.h"
 #include "imageManager.h"
@@ -29,7 +31,10 @@ int main(int argc, char *argv[])
     }
     mqtt_manager.publishData(json_data_byte_array);
     mqtt_manager.disconect();
+    imageManager.deleteImage();
 
-    cout << "\n\t\t  PROCESS DONE ..." << endl;
+    cout << "\n\t\t  PROCESS DONE ...\n\n" << endl;
+
+    exit(0);
     return a.exec();
 }

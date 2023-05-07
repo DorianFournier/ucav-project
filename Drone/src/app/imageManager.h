@@ -20,6 +20,7 @@ public:
     QString removeBackslash(void);
     QString messageToBinary(QString message);
     QJsonObject convertImagetoJson(void);
+    void deleteImage(void);
 
 private:
     QString m_inputImageFilename =  QDir::currentPath().remove("/bin/release") +"/src/app/resources/images/DroneIMG37337.png";
